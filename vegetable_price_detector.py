@@ -43,29 +43,15 @@ def find_vegetables_and_prices(image_path, box_threshold: float = 0.1):
         
         # Add to results if a price was found
         if closest_price:
-            #<ALEX>
-            # if veg_name not in results:
-            #     results[veg_name] = []
-            # results[veg_name].append(closest_price)
-            #</ALEX>
-            #<ALEX>
             results[veg_name] = closest_price
-            #</ALEX>
 
-    # Convert results to JSON
-    # return json.dumps(results, indent=2)
-
-    #<ALEX>
     results = {
         veg: price.split("/")[0].strip()
         for veg, price in results.items()
     }
-    #</ALEX>
     return results
 
 # The function can be called with the image path
 # result = find_vegetables_and_prices('/path/to/image.png')
-#<ALEX>
 # result = find_vegetables_and_prices('/Users/alexsherstinsky/Development/VisionAgent/alex_workspace_test_0/SafewayFlyer11142024as0.png')
 # print(result)
-#</ALEX>
